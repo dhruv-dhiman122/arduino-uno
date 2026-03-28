@@ -46,4 +46,13 @@ void loop() {
         Serial.println(mq135_value);
     }
 
+    //condition for mq5 sensor
+    if(mq5_value >= 1350) {
+        Serial.print("The value of LPG or natural gases are highly dangerous. The value of the sensor is: ");
+        Serial.println(mq5_value);
+    }
+    else {
+        Serial.print("The value of LPG and natural gases are not highly angerous. The value of the sensor is: ");
+        Serial.println(mq5_value);
+    }
 }
