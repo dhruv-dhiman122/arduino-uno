@@ -1,4 +1,4 @@
-
+#include <Wire.h>
 
 // ============== space for macro or golbal defined variables =============
 
@@ -17,6 +17,16 @@
 
 void setup() {
     Serial.begin(9600);
+    //defining the pin's mode for sensors
+    pinMode(MQ5_1, INPUT);
+    pinMode(MQ9_1, INPUT);
+    pinMode(MQ135_1, INPUT);
+
+    //defining the pin's mode for buzzer using digital pins
+    pinMode(BUZZER_PIN, OUTPUT);
+
+    //defining the pin's mode for OLED screen using analog pins
+    Wire.begin();
 }
 
 // ========= Space for only loop function =============
