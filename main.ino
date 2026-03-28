@@ -67,4 +67,6 @@ void loop() {
         Serial.println(mq9_value);
         digitalWrite(BUZZER_PIN, LOW);
     }
+
+    delay(500);
 }
