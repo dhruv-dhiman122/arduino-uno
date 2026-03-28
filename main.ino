@@ -31,5 +31,9 @@ void setup() {
 
 // ========= Space for only loop function =============
 void loop() {
+    //taking input from the sensors
+    int mq5_value = analogRead(MQ5_1);
+    int mq9_value = analogRead(MQ9_1);
+    int mq135_value = analogRead(MQ135_1);
 
 }
