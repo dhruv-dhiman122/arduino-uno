@@ -55,4 +55,16 @@ void loop() {
         Serial.print("The value of LPG and natural gases are not highly angerous. The value of the sensor is: ");
         Serial.println(mq5_value);
     }
+
+    //condition for mq9 sensor
+    if(mq9_value >= 850) {
+        Serial.print("The value of flammable gas is high. The value of the sensor is: ");
+        Serial.println(mq9_value);
+        digitalWrite(BUZZER_PIN, HIGH);
+    }
+    else {
+        Serial.print("The value of flammable gas is not high. The value of the sensor is: ");
+        Serial.println(mq9_value);
+        digitalWrite(BUZZER_PIN, LOW);
+    }
 }
