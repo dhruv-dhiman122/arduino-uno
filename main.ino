@@ -2,12 +2,16 @@
 
 // ============== space for macro or golbal defined variables =============
 
-#define MQ5_1 A0
-#define MQ5_2 A1
-#define MQ9_1 A2
-#define MQ9_2 A3
-#define MQ135_1 A4
-#define MQ135_2 A5
+#define MQ5_1 A0 //defined the pins for MQ5 sensor
+
+#define MQ9_1 A1 //defined the pins for MQ9 sensor
+
+#define MQ135_1 A3 //defined the pins for MQ135 sensor
+
+#define BUZZER_PIN 2 //defined the pins for buzzer alram
+
+#define OLED_SDA A4 //defined the pin for the analog input for SDA
+#define OLED_SCL A5 //defined the pins for the analog input for SCL
 
 // ========== Space for only setup function ==========
 
