@@ -36,4 +36,14 @@ void loop() {
     int mq9_value = analogRead(MQ9_1);
     int mq135_value = analogRead(MQ135_1);
 
+    //condition for mq135 smoke sensor
+    if(mq135_value > 450) {
+        Serial.print("The smoke is detected!! Value of sensor is: ");
+        Serial.println(mq135_value);
+    }
+    else {
+        Serial.print("The somke is not detected!! Value of sensor is: ");
+        Serial.println(mq135_value);
+    }
+
 }
