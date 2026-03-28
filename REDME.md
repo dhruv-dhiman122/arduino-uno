@@ -18,4 +18,3 @@ fire itself.
 - OLED display -> to show wheather its a fire or smoke
 - buzzer for alram systems 
 - servo motor -> for opening and closing the doors
-- 16 channel servo motor driver -> for controlling the servo motor that are used in the project
