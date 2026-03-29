@@ -31,6 +31,7 @@ void setup() {
 
 // ========= Space for only loop function =============
 void loop() {
+    bool danger = false;
     //taking input from the sensors
     int mq5_value = analogRead(MQ5_1);
     int mq9_value = analogRead(MQ9_1);
@@ -40,32 +41,43 @@ void loop() {
     if(mq135_value > 450) {
         Serial.print("The smoke is detected!! Value of sensor is: ");
         Serial.println(mq135_value);
+        danger = true;
     }
     else {
         Serial.print("The somke is not detected!! Value of sensor is: ");
         Serial.println(mq135_value);
+        danger = false;
     }
 
     //condition for mq5 sensor
-    if(mq5_value >= 1350) {
+    if(mq5_value >= 350) {
         Serial.print("The value of LPG or natural gases are highly dangerous. The value of the sensor is: ");
         Serial.println(mq5_value);
+        danger = true;
     }
     else {
         Serial.print("The value of LPG and natural gases are not highly angerous. The value of the sensor is: ");
         Serial.println(mq5_value);
+        danger = false;
     }
 
     //condition for mq9 sensor
     if(mq9_value >= 850) {
         Serial.print("The value of flammable gas is high. The value of the sensor is: ");
         Serial.println(mq9_value);
-        digitalWrite(BUZZER_PIN, HIGH);
+        danger = true;
     }
     else {
         Serial.print("The value of flammable gas is not high. The value of the sensor is: ");
         Serial.println(mq9_value);
-        digitalWrite(BUZZER_PIN, LOW);
+        danger = false;
+    }
+
+    if(danger) {
+        digitalWrite(danger, HIGH);
+    }
+    else {
+        digitalWrite(danger, LOW);
     }
 
     delay(500);
