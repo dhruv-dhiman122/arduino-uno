@@ -85,5 +85,16 @@ void loop() {
         digitalWrite(BUZZER_PIN, LOW);
     }
 
+    //code for printing status over screen
+    if(danger == 0) {
+        display.println("STATUS: SAFE");
+    }
+    else if(danger == 1) {
+        display.println("STATUS: WARNING");
+    }
+    else {
+        display.println("STATUS: DANGER!!");
+    }
+    display.display();
     delay(500);
 }
