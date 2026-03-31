@@ -86,6 +86,10 @@ void loop() {
         danger = false;
     }
 
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+
     if(danger) {
         digitalWrite(BUZZER_PIN, HIGH);
     }
