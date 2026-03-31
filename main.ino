@@ -35,7 +35,7 @@ void setup() {
     Wire.begin();
 
     //Initialize OLED
-    if(!display.begin(SSD1306_SWITCHAPVCC, 0x3C)) {
+    if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
         Serial.println("OLED NOT FOUND!!");
         while(true);
     }
@@ -66,6 +66,16 @@ void loop() {
     display.clearDisplay();
     display.setTextSize(1);
     display.setTextColor(WHITE);
+
+    display.setCursor(0,0);
+    display.print("MQ135: ");
+    display.println(mq135_value);
+
+    display.print("MQ5: ");
+    display.println(mq5_value);
+
+    display.print("MQ9: ");
+    display.println(mq9_value);
 
     //writing the code for buzzer
     if(danger == 2) {
