@@ -1,6 +1,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <Servo.h>
 
 // ============== space for macro or golbal defined variables =============
 
@@ -15,6 +16,9 @@
 #define OLED_SDA A4 //defined the pin for the analog input for SDA
 #define OLED_SCL A5 //defined the pins for the analog input for SCL
 
+#define SERVO_PIN 9 //defined the pin for servo motor for pins digital pin 9
+
+//preprocessor for SSD1306 screen
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
