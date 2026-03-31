@@ -1,4 +1,6 @@
 #include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
 // ============== space for macro or golbal defined variables =============
 
@@ -13,6 +15,10 @@
 #define OLED_SDA A4 //defined the pin for the analog input for SDA
 #define OLED_SCL A5 //defined the pins for the analog input for SCL
 
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+
+Adafruit_SSD1306 diplay(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 // ========== Space for only setup function ==========
 
 void setup() {
@@ -27,6 +33,8 @@ void setup() {
 
     //defining the pin's mode for OLED screen using analog pins
     Wire.begin();
+
+
 }
 
 // ========= Space for only loop function =============
