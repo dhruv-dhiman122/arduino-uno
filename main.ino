@@ -23,6 +23,8 @@
 #define SCREEN_HEIGHT 64
 
 Adafruit_SSD1306 diplay(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
+Servo servo;
 // ========== Space for only setup function ==========
 
 void setup() {
@@ -44,6 +46,9 @@ void setup() {
         while(true);
     }
     display.clearDisplay();
+
+    //servo motor Initialize
+    servo.attach(SERVO_PIN, 544, 2400);
 }
 
 // ========= Space for only loop function =============
@@ -100,5 +105,13 @@ void loop() {
         display.println("STATUS: DANGER!!");
     }
     display.display();
+
+    //code for opening the door(using servo motor)
+    if(danger == 2) {
+        servo.write(90);
+    }
+    else {
+        servo.write(0);
+    }
     delay(500);
 }
