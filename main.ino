@@ -74,10 +74,10 @@ void loop() {
     }
 
     if(danger) {
-        digitalWrite(danger, HIGH);
+        digitalWrite(BUZZER_PIN, HIGH);
     }
     else {
-        digitalWrite(danger, LOW);
+        digitalWrite(BUZZER_PIN, LOW);
     }
 
     delay(500);
