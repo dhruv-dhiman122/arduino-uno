@@ -44,7 +44,7 @@ void setup() {
 
 // ========= Space for only loop function =============
 void loop() {
-    int danger = 0;
+    int danger = 0; // 0 = safe, 1 = warning and 2 = warning
     //taking input from the sensors
     int mq5_value = analogRead(MQ5_1);
     int mq9_value = analogRead(MQ9_1);
