@@ -44,53 +44,31 @@ void setup() {
 
 // ========= Space for only loop function =============
 void loop() {
-    bool danger = false;
+    int danger = 0;
     //taking input from the sensors
     int mq5_value = analogRead(MQ5_1);
     int mq9_value = analogRead(MQ9_1);
     int mq135_value = analogRead(MQ135_1);
 
     //condition for mq135 smoke sensor
-    if(mq135_value > 450) {
-        Serial.print("The smoke is detected!! Value of sensor is: ");
-        Serial.println(mq135_value);
-        danger = true;
-    }
-    else {
-        Serial.print("The somke is not detected!! Value of sensor is: ");
-        Serial.println(mq135_value);
-        danger = false;
-    }
+    if(mq135_value > 450) danger = max(danger, 1);
+    if(mq135_value > 700) danger = max(danger, 2);
 
-    //condition for mq5 sensor
-    if(mq5_value >= 350) {
-        Serial.print("The value of LPG or natural gases are highly dangerous. The value of the sensor is: ");
-        Serial.println(mq5_value);
-        danger = true;
-    }
-    else {
-        Serial.print("The value of LPG and natural gases are not highly angerous. The value of the sensor is: ");
-        Serial.println(mq5_value);
-        danger = false;
-    }
+    // condition for mq5 snesor
+    if(mq5_value > 350) danger = max(danger, 1);
+    if(mq5_value > 600) danger = max(danger, 2);
 
     //condition for mq9 sensor
-    if(mq9_value >= 850) {
-        Serial.print("The value of flammable gas is high. The value of the sensor is: ");
-        Serial.println(mq9_value);
-        danger = true;
-    }
-    else {
-        Serial.print("The value of flammable gas is not high. The value of the sensor is: ");
-        Serial.println(mq9_value);
-        danger = false;
-    }
+    if(mq9_value > 850) danger = max(danger, 1);
+    if(mq9_value > 1000) danger = max(danger, 2);
 
+    //setting up code for OLED screen
     display.clearDisplay();
     display.setTextSize(1);
     display.setTextColor(WHITE);
 
-    if(danger) {
+    //writing the code for buzzer
+    if(danger == 2) {
         digitalWrite(BUZZER_PIN, HIGH);
     }
     else {
