@@ -34,7 +34,12 @@ void setup() {
     //defining the pin's mode for OLED screen using analog pins
     Wire.begin();
 
-
+    //Initialize OLED
+    if(!display.begin(SSD1306_SWITCHAPVCC, 0x3C)) {
+        Serial.println("OLED NOT FOUND!!");
+        while(true);
+    }
+    display.clearDisplay();
 }
 
 // ========= Space for only loop function =============
