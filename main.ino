@@ -19,7 +19,7 @@
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
-Adafruit_SSD1306 diplay(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+//Adafruit_SSD1306 diplay(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 Servo servo;
 // ========== Space for only setup function ==========
@@ -36,14 +36,14 @@ void setup() {
 
     //defining the pin's mode for OLED screen using analog pins
     Wire.begin();
-
+    /*
     //Initialize OLED
     if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
         Serial.println("OLED NOT FOUND!!");
         while(true);
     }
     display.clearDisplay();
-
+    */
     //servo motor Initialize
     servo.attach(SERVO_PIN);
 }
@@ -103,15 +103,15 @@ void loop() {
 
     //code for printing status over screen
     if(danger == 0) {
-        display.println("STATUS: SAFE");
+        Serial.println("STATUS: SAFE");
     }
     else if(danger == 1) {
-        display.println("STATUS: WARNING");
+        Serial.println("STATUS: WARNING");
     }
     else {
-        display.println("STATUS: DANGER!!");
+        Serial.println("STATUS: DANGER!!");
     }
-    display.display();
+    //display.display();
 
     //code for opening the door(using servo motor)
     if(danger == 2) {
