@@ -1,6 +1,3 @@
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
 #include <Servo.h>
 
 // ============== space for macro or golbal defined variables =============
@@ -48,7 +45,7 @@ void setup() {
     display.clearDisplay();
 
     //servo motor Initialize
-    servo.attach(SERVO_PIN, 544, 2400);
+    servo.attach(SERVO_PIN);
 }
 
 // ========= Space for only loop function =============
@@ -71,6 +68,7 @@ void loop() {
     if(mq9_value > 850) danger = max(danger, 1);
     if(mq9_value > 800) danger = max(danger, 2);
 
+    /*
     //setting up code for OLED screen
     display.clearDisplay();
     display.setTextSize(1);
@@ -84,7 +82,16 @@ void loop() {
     display.println(mq5_value);
 
     display.print("MQ9: ");
-    display.println(mq9_value);
+    display.println(mq9_value);*/
+
+    Serial.print("MQ135: ");
+    Serial.println(mq135_value);
+
+    Serial.print("MQ5: ");
+    Serial.println(mq5_value);
+
+    Serial.print("MQ9: ");
+    Serial.println(mq9_value);
 
     //writing the code for buzzer
     if(danger == 2) {
