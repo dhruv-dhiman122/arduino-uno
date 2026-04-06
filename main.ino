@@ -35,7 +35,7 @@ void setup() {
     pinMode(BUZZER_PIN, OUTPUT);
 
     //defining the pin's mode for OLED screen using analog pins
-    Wire.begin();
+    //Wire.begin();
     /*
     //Initialize OLED
     if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
