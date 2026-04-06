@@ -69,7 +69,7 @@ void loop() {
 
     //condition for mq9 sensor
     if(mq9_value > 850) danger = max(danger, 1);
-    if(mq9_value > 1000) danger = max(danger, 2);
+    if(mq9_value > 800) danger = max(danger, 2);
 
     //setting up code for OLED screen
     display.clearDisplay();
